@@ -11,9 +11,9 @@ import (
 )
 
 var (
-	ErrInvalidServer = errors.New("invalid dns-server")
+	ErrInvalidServer       = errors.New("invalid dns-server")
 	ErrServerAlreadyExists = errors.New("dns-server already exists")
-	ErrServerNotFound = errors.New("dns-server not found")
+	ErrServerNotFound      = errors.New("dns-server not found")
 )
 
 type Manager struct {
