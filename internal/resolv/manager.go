@@ -139,8 +139,7 @@ func writeDocument(path string, doc document) error {
 		b.WriteString("\n")
 	}
 
-	const rwForOwnerReadOnlyForOthers = 0o644
-	if err := os.WriteFile(path, []byte(b.String()), rwForOwnerReadOnlyForOthers); err != nil {
+	if err := os.WriteFile(path, []byte(b.String()), 0o644); err != nil {
 		return fmt.Errorf("write document resolv.conf: %w", err)
 	}
 	return nil

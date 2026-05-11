@@ -33,8 +33,7 @@ func buildLogger(logPath string) *slog.Logger {
 		return slog.New(slog.NewJSONHandler(os.Stdout, nil))
 	}
 
-	const rwForOwnerReadOnlyForOthers = 0o644
-	f, err := os.OpenFile(logPath, os.O_CREATE|os.O_APPEND|os.O_WRONLY, rwForOwnerReadOnlyForOthers)
+	f, err := os.OpenFile(logPath, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0o644)
 	if err != nil {
 		log.Fatalf("open log file: %v", err)
 	}
